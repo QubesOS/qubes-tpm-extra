@@ -1,0 +1,4 @@
+host:
+  rpm:
+    spec:
+    - tpm-extra.spec
