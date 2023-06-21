@@ -1,7 +1,7 @@
 Name:		tpm-extra
 Version:	@VERSION@
 Release:	1%{?dist}
-Summary:	Command line tool for TPM PCR Extend operation
+Summary:	Additional tools not included in tpm-tools package.
 
 Group:		System
 License:	GPL
@@ -30,6 +30,7 @@ cp -r sbin $RPM_BUILD_ROOT/usr
 %files
 /usr/sbin/tpm_pcr_extend
 /usr/sbin/tpm_z_srk
+/usr/sbin/tpm2_z_srk
 /usr/sbin/tpm_nvread_stdout
 /usr/sbin/tpm_nvwrite_stdin
 /usr/sbin/notty

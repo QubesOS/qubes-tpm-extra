@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Value recommended by TCG TPM v2.0 Provisioning Guidance
+# https://trustedcomputinggroup.org/wp-content/uploads/TCG-TPM-v2.0-Provisioning-Guidance-Published-v1r1.pdf
+# in Table 2
+TPM2_SRK_HANDLE=0x81000001
+
+log() {
+    echo "${0##*/}: $1" >&2
+}
+
+
+log "detecting whether SRK is password protected"
+
+password_set=no
+# empty input doesn't work
+if ! echo | tpm2_create -Q -C "$TPM2_SRK_HANDLE" -i - 2>/dev/null; then
+    log "yes, SRK is password protected"
+else
+    log "no, SRK isn't password protected"
+    echo -z
+fi
